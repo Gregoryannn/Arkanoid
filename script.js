@@ -191,6 +191,19 @@ function increaseScore() {
 // Make all bricks appear
 function showAllBricks() {
 
+    bricks.forEach(column => column.forEach(b => b.visib = true));
+
+  // Analog
+  // for(let i = 0; i < brickColumnCount; i++) {
+  //   for(let j = 0; j < brickRowCount; j++) {
+  //     bricks[i][j].visib = true;
+  //   }
+  // }
+
+  // for(let i = 0; i < brickColumnCount; i = i + 2) {
+
+  // }
+
 }
 
 // Draw everything
@@ -247,4 +260,6 @@ rulesBtn.addEventListener('click', () => {
 
 closeBtn.addEventListener('click', () => {
     rules.classList.remove('show');
+
+
 })
