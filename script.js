@@ -79,7 +79,6 @@ function drawBall() {
 }
 
 // Draw paddle on canvas
-// Нарисовать падлу
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
@@ -166,6 +165,26 @@ function moveBall() {
 
 // Increase score
 function increaseScore() {
+    // score = score + 1;
+    // score += 1;
+    // score +=2 ;
+    // score = score + 2;
+    score++;
+
+    if (score % (brickRowCount * brickColumnCount) === 0) {
+        ball.visib = false;
+        paddle.visib = false;
+        setTimeout(() => {
+            showAllBricks();
+            score = 0;
+            paddle.x = canvas.width / 2 - 40;
+            paddle.y = canvas.height - 20;
+            ball.x = canvas / 2;
+            ball.y = canvas.height / 2;
+            ball.visib = true;
+            paddle.visib = true;
+        }, delay)
+    }
 
 }
 
