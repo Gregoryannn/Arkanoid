@@ -91,6 +91,9 @@ function drawPaddle() {
 // Draw score on canvas
 function drawScore() {
 
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score: ${score} `, canvas.width - 100, 30);
+
 }
 
 // Draw bricks on canvas
@@ -104,7 +107,7 @@ function drawBricks() {
             ctx.closePath();
         });
     });
-};
+}
 
 // Move paddle on canvas
 function movePaddle() {
@@ -152,7 +155,14 @@ function moveBall() {
             }
         })
     })
+
+    if (ball.y + ball.size > canvas.height) {
+        showAllBricks();
+        score = 0;
+    }
 }
+
+
 
 // Increase score
 function increaseScore() {
